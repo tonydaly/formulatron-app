@@ -16,6 +16,7 @@ gem 'haml'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
+  gem "ZenTest"
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
