@@ -7,9 +7,12 @@ class Element
   embedded_in :form
 
   TYPES = {
-    string: 'text_field',
-    text: 'text_area'
+    string: 'Single Line Text',
+    text: 'Paragraph Text'
   }
 
-  validates_inclusion_of :element_type, in: Element::TYPES.values
+  validates_inclusion_of :element_type, in: Element::TYPES.keys.map(&:to_s)
+
+  # Have a clever method to work out the class and styles for different elements
+  # e.g. text areas should have 3 rows.
 end

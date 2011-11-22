@@ -3,6 +3,8 @@
 %ul
   - @forms.each do |form|
     %li
-      = link_to form.name, form
+      = form.name
+      = link_to "See results", form
+      = link_to "Submit response", new_form_submission_path(form)
 
 = link_to "Create new form", new_form_path

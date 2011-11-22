@@ -1,0 +1,12 @@
+%h2=@form.name
+%p=@form.description
+
+= simple_form_for [@form, @submission] do |f|
+  - @form.elements.each_with_index do |element, index|
+    
+    = f.input "field_#{index}".to_sym, 
+      as: element.element_type.to_sym, 
+      label: element.name, 
+      input_html: { class: 'xxlarge' }
+
+= link_to 'Back to forms', forms_path
