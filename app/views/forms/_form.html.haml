@@ -1,20 +1,14 @@
-= form_for @form do |f|
+= simple_form_for @form do |f|
+  = render "shared/error_messages", :target => @form
+
   %fieldset
-    .clearfix 
-      = f.label :name, "Form Name"
-      .input
-        = f.text_field :name, class: 'xxlarge'
-    .clearfix 
-      = f.label :description, "Form Description"
-      .input
-        = f.text_area :description, rows: 3, class: 'xxlarge'
-        %span.help-block
-          Brief description of your form with instructions on how to complete.
+    = f.input :name, label: "Form Name", input_html: { class: 'xxlarge' }
+    = f.input :description, :as => :text, input_html: { class: 'xxlarge', rows: 3 }
   
   %fieldset
     %legend Fields
 
-    = f.fields_for :elements do |element_form|
+    = f.simple_fields_for :elements do |element_form|
       .clearfix
         = render partial: 'element_fields', :locals => { :f => element_form }
     %p= link_to_add_fields "Add Field", f, :elements

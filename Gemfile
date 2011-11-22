@@ -13,6 +13,7 @@ end
 gem 'jquery-rails'
 gem 'coffee-script'
 gem 'haml'
+gem "simple_form"
 
 gem "mongoid", "~> 2.3"
 gem "bson_ext", "~> 1.4"

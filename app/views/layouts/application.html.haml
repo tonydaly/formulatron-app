@@ -30,6 +30,13 @@
             %small Test application to showoff Formulatron
         .row
           .span14
+            - if notice
+              .alert-message.notice
+                %p= notice
+            - if alert
+              .alert-message.alert
+                %p= alert
+            
             = yield
             
       %footer

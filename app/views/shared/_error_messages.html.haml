@@ -1,0 +1,8 @@
+- if target.errors.any?
+  .alert-message.block-message.error
+    %strong
+      Some errors were found, please take a look:
+
+    %ul
+      - target.errors.full_messages.each do |msg|
+        %li= msg

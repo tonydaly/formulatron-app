@@ -1,10 +1,4 @@
-.clearfix
-  = f.label :name, "Name"
-  .input
-    = f.text_field :name
-.clearfix
-  = f.label :element_type, "Type"
-  .input
-    = f.select :element_type, Element::TYPES.collect { |t| [t.humanize, t.to_s] }
+= f.input :name
+= f.input :element_type, collection: Element::TYPES, label: "Type", include_blank: false
 
 = link_to_remove_fields "remove", f
