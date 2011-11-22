@@ -16,4 +16,17 @@ class FormsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @form = Form.find params[:id]
+  end
+
+  def update
+    @form = Form.find params[:id]
+    if @form.update_attributes params[:form]
+      redirect_to @form
+    else
+      render :new
+    end
+  end
 end

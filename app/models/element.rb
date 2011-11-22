@@ -7,4 +7,6 @@ class Element
   embedded_in :form
 
   TYPES = %w{text_field text_area}
+
+  validates_inclusion_of :element_type, in: Element::TYPES
 end
