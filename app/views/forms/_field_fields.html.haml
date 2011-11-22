@@ -2,4 +2,9 @@
   = f.label :name, "Name"
   .input
     = f.text_field :name
-    = link_to_remove_fields "remove", f
+.clearfix
+  = f.label :type, "Type"
+  .input
+    = f.select :type, Field::TYPES.collect { |t| [t.humanize, t.to_s] }
+
+= link_to_remove_fields "remove", f
