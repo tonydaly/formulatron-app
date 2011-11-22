@@ -14,6 +14,9 @@ gem 'jquery-rails'
 gem 'coffee-script'
 gem 'haml'
 
+gem "mongoid", "~> 2.3"
+gem "bson_ext", "~> 1.4"
+
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
   gem "ZenTest"
