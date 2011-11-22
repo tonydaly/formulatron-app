@@ -6,6 +6,13 @@ class Field
 
   attr_accessor :name, :type
 
+  def initialize(attributes={})
+    attributes.each do |k, v|
+      next if k == '_destroy' # for the moment
+      send("#{k}=", v)
+    end
+  end
+
   def persisted?
     false
   end
