@@ -1,10 +1,11 @@
 class FormsController < ApplicationController
   def index
-    
+    @forms = Form.all
   end
 
   def new
     @form = Form.new
+    @form.elements.build
   end
 
   def create

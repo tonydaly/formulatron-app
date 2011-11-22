@@ -1,3 +1,8 @@
 %h1 Forms
 
+%ul
+  - @forms.each do |form|
+    %li
+      = form.name
+
 = link_to "Create new form", new_form_path

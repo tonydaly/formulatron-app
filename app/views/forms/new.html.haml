@@ -14,9 +14,9 @@
   %fieldset
     %legend Fields
 
-    = f.fields_for :fields do |fields_form|
+    = f.fields_for :elements do |element_form|
       .clearfix
-        = render partial: 'field_fields', :locals => { :f => fields_form }
-    %p= link_to_add_fields "Add Field", f, :fields
+        = render partial: 'element_fields', :locals => { :f => element_form }
+    %p= link_to_add_fields "Add Field", f, :elements
 
   %p= f.submit "Save", class: 'btn primary'
