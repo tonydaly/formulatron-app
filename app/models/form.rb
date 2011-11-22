@@ -2,7 +2,7 @@ class Form
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :name
+  attr_accessor :name, :description
 
   def persisted?
     false
