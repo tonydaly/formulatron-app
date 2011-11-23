@@ -5,8 +5,9 @@ class Element
   field :name, type: String
   field :label, type: String
   field :element_type, type: String
-  field :options, type: Array # => [[value, label], [value, label], [value, label]]
+  # field :options, type: Array # => [[value, label], [value, label], [value, label]]
   embedded_in :form
+  embeds_many :options
 
   TYPES = {
     string: 'Single Line Text',
@@ -17,6 +18,7 @@ class Element
 
   validates_inclusion_of :element_type, in: Element::TYPES.keys.map(&:to_s)
   validates_presence_of :name, :label
+  accepts_nested_attributes_for :options
 
   # Have a clever method to work out the class and styles for different elements
   # e.g. text areas should have 3 rows.

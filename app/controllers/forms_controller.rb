@@ -10,6 +10,7 @@ class FormsController < ApplicationController
   def new
     @form = Form.new
     @form.elements.build
+    # @form.elements.options.build
   end
 
   def create

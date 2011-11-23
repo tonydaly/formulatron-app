@@ -5,7 +5,8 @@
   - @form.elements.each_with_index do |element, index|
     
     = f.input element.name.to_sym, 
-      as: element.element_type.to_sym, 
+      as: element.element_type.to_sym,
+      collection: element.options,
       label: element.label, 
       input_html: { class: 'xxlarge' }
 
