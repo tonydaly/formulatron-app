@@ -3,6 +3,10 @@ class FormsController < ApplicationController
     @forms = Form.all
   end
 
+  def show
+    @form = Form.find params[:id]
+  end
+
   def new
     @form = Form.new
     @form.elements.build
@@ -17,7 +21,7 @@ class FormsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @form = Form.find params[:id]
   end
 

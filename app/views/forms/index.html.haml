@@ -5,6 +5,8 @@
     %li
       %p= form.name
       %p
+        = link_to 'Edit', edit_form_path(form)
+        |
         = link_to "See results", form
         |
         = link_to "Submit response", new_form_submission_path(form)
