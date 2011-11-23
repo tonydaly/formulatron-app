@@ -1,3 +1,17 @@
-= render 'form'
+- names = @form.elements.collect(&:name)
+
+%table
+  %thead
+    %tr
+      %th #
+      - @form.elements.collect(&:label).each do |element_label|
+        %th
+          = element_label
+  %tbody
+    - @form.submissions.each_with_index do |submission, index|
+      %tr
+        %td=index+1
+        - names.each do |name|
+          %td=submission[name.to_sym]
 
 = link_to 'Back to forms', forms_path

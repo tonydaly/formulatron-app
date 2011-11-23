@@ -4,9 +4,11 @@
 = simple_form_for [@form, @submission] do |f|
   - @form.elements.each_with_index do |element, index|
     
-    = f.input "field_#{index}".to_sym, 
+    = f.input element.name.to_sym, 
       as: element.element_type.to_sym, 
-      label: element.name, 
+      label: element.label, 
       input_html: { class: 'xxlarge' }
+
+  = f.button :submit, class: 'btn primary'
 
 = link_to 'Back to forms', forms_path

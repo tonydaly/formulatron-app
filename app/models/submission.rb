@@ -2,11 +2,8 @@ class Submission
   include Mongoid::Document
   belongs_to :form
 
+  # This is pretty hacky.
   def method_missing(m, *args, &block)
-    if m.to_s =~ /^field_(.+)$/
-      return ''
-    else
-      super
-    end
+    return ''
   end
 end
