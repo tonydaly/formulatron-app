@@ -14,6 +14,11 @@
       %tr
         %td=index+1
         - names.each do |name|
-          %td=submission[name.to_sym]
+          %td
+            - value = submission[name.to_sym]
+            - if value.is_a? Array
+              = value.to_sentence
+            - else
+              = value
 
 = link_to 'Back to forms', forms_path

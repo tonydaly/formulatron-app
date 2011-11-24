@@ -6,9 +6,9 @@
     
     = f.input element.name.to_sym, 
       as: element.element_type.to_sym,
-      collection: element.options,
+      collection: element.options.collect(&:value),
       label: element.label, 
-      input_html: { class: 'xxlarge' }
+      input_html: { class: "element.options.any? ? '' : xxlarge'" }
 
   = f.button :submit, class: 'btn primary'
 
