@@ -6,5 +6,5 @@ class Form
   has_many :submissions
 
   validates_presence_of :name, :description
-  accepts_nested_attributes_for :elements
+  accepts_nested_attributes_for :elements, :allow_destroy => true
 end

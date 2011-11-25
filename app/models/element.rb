@@ -18,7 +18,7 @@ class Element
 
   validates_inclusion_of :element_type, in: Element::TYPES.keys.map(&:to_s)
   validates_presence_of :name, :label
-  accepts_nested_attributes_for :options
+  accepts_nested_attributes_for :options, :allow_destroy => true
 
   # Have a clever method to work out the class and styles for different elements
   # e.g. text areas should have 3 rows.
