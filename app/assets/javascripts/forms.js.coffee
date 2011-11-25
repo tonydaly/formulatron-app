@@ -9,5 +9,7 @@ $ ->
     $(link).parent().before(content.replace(regexp, new_id))
 
   $("form select").change ->
-    console.log($(this).find(':selected').text())
-    console.log($(this).find(':selected').val())
+    if $(this).find(':selected').val() in ['radio', 'check_boxes']
+      $(this).parent().siblings("fieldset.options").show()
+    else
+      $(this).parent().siblings("fieldset.options").hide()
