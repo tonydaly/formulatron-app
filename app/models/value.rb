@@ -10,17 +10,6 @@ class Value
     return ''
   end
 
-  # Return an array that contains all of the dynamic attributes that
-  # have been set on this object.
-  def dynamic_fields
-    _attributes = attributes
-    fields.keys.each do |key|
-      _attributes.delete(key)
-    end
-
-    return _attributes.keys
-  end
-
   def to_s
     value
   end
