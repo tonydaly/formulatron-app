@@ -12,7 +12,8 @@
       - option_count = element.option_counts[option.value]
       %tr
         %td=option
-        %td=percentage(@submissions.count, option_count)
+        %td
+          ="#{percentage(@submissions.count, option_count)}%"
         %td= option_count
 
 %h3
