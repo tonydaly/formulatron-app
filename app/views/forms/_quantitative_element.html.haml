@@ -13,7 +13,11 @@
       %tr
         %td=option
         %td
-          ="#{percentage(@submissions.count, option_count)}%"
+          - percent = percentage(@submissions.count, option_count)
+          .meter
+            %span{style: "width: #{percent}%", class: "#{cycle('', 'red', 'green')}"}
+              %p
+                ="#{percent}%"
         %td= option_count
 
 %h3
