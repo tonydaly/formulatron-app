@@ -1,11 +1,11 @@
 # This class was originally called `Field`, however, this is a 
 # keyword in Mongoid.
 class Element
+  extend ActiveSupport::Memoizable
   include Mongoid::Document
   field :name, type: String
   field :label, type: String
   field :element_type, type: String
-  # field :options, type: Array # => [[value, label], [value, label], [value, label]]
   embedded_in :form
   embeds_many :options
 
@@ -20,8 +20,35 @@ class Element
   validates_presence_of :name, :label
   accepts_nested_attributes_for :options, :allow_destroy => true
 
-  # Have a clever method to work out the class and styles for different elements
+  # TODO Have a clever method to work out the class and styles for different elements
   # e.g. text areas should have 3 rows.
+
+  def check_box?
+    element_type == 'check_boxes'
+  end
+
+  def radio?
+    element_type == 'radio'
+  end
+
+  # Returns a hash of each option and its count
+  def option_counts
+    submissions = form.submissions
+    
+    values = Hash.new(0)
+    submissions.each do |submission|
+      submission.quantitative_values.each do |value|
+
+        value.value.each do |choice|
+          values[choice] += 1
+        end
+      end
+    end
+    
+    return values
+  end
+
+  memoize :option_counts
 
   protected
 

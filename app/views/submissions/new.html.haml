@@ -3,12 +3,15 @@
 
 = simple_form_for [@form, @submission] do |f|
   - @form.elements.each_with_index do |element, index|
-    
-    = f.input element.name.to_sym, 
-      as: element.element_type.to_sym,
-      collection: element.options.collect(&:value),
-      label: element.label, 
-      input_html: { class: "element.options.any? ? '' : xxlarge'" }
+
+    = f.simple_fields_for :values, f.object.values.build do |value_form|
+      = value_form.input :value, 
+        as: element.element_type.to_sym,
+        collection: element.options.collect(&:value),
+        label: element.label, 
+        input_html: { class: "element.options.any? ? '' : xxlarge'" }
+      = value_form.input :name, input_html: { value: element.name }, :as => :hidden
+      = value_form.input :element_type, input_html: { value: element.element_type }, :as => :hidden
 
   = f.button :submit, class: 'btn primary'
 
