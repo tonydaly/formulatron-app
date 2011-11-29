@@ -6,6 +6,9 @@ class FormsController < ApplicationController
   def show
     @form = Form.find params[:id]
     @submissions = @form.submissions
+
+    @qualitative_elements   = @form.qualitative_elements
+    @quantitative_elements  = @form.quantitative_elements
   end
 
   def new

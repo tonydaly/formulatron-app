@@ -1,22 +1,20 @@
-- names = @form.qualitative_elements.collect(&:name)
-
 %h2 Responses
 
 %table
   %thead
     %tr
       %th #
-      - @form.qualitative_elements.collect(&:label).each do |element_label|
+      - @qualitative_elements.collect(&:label).each do |element_label|
         %th
           = element_label
   %tbody
     - @submissions.each_with_index do |submission, index|
       %tr
         %td=index+1
-        - names.each do |name|
+        - @qualitative_elements.collect(&:name).each do |name|
           %td
             = submission.values.where(name: name).first
 
-= render partial: 'quantitative_element', collection: @form.quantitative_elements, :as => :element
+= render partial: 'quantitative_element', collection: @quantitative_elements, :as => :element
 
 = link_to 'Back to forms', forms_path

@@ -33,7 +33,8 @@ class Element
     element_type == 'radio'
   end
 
-  # Returns a hash of each option and its count
+  # Returns a hash of each option and its count.
+  # Useful for quantitative values.
   def option_counts
     submissions = form.submissions
     

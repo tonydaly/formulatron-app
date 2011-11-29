@@ -9,11 +9,11 @@
 
   %tbody
     - element.options.each do |option|
+      - option_count = element.option_counts[option.value]
       %tr
         %td=option
-        %td=percentage(@submissions.count, element.option_counts[option.value])
-        %td
-          = element.option_counts[option.value]
+        %td=percentage(@submissions.count, option_count)
+        %td= option_count
 
 %h3
   = total(@submissions.count, element)
