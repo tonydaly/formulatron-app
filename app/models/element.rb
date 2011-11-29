@@ -9,6 +9,8 @@ class Element
   embedded_in :form
   embeds_many :options
 
+  # These types correspond to the mappings in SimpleForm.
+  # This allows us to get SimpleForm to render the correct type of field.
   TYPES = {
     string: 'Single Line Text',
     text: 'Paragraph Text',
@@ -47,7 +49,6 @@ class Element
     
     return values
   end
-
   memoize :option_counts
 
   protected

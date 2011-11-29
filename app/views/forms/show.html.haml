@@ -17,25 +17,6 @@
           %td
             = submission.values.where(name: name).first
 
-- @form.quantitative_elements.each do |element|
-  %h2=element.label
-
-  %table
-    %thead
-      %tr
-        %th Choices
-        %th Percentage
-        %th Count
-
-    %tbody
-      - element.options.each do |option|
-        %tr
-          %td=option
-          %td=percentage(@submissions.count, element.option_counts[option.value])
-          %td
-            = element.option_counts[option.value]
-
-  %h3
-    = total(@submissions.count, element)
+= render partial: 'quantitative_element', collection: @form.quantitative_elements, :as => :element
 
 = link_to 'Back to forms', forms_path

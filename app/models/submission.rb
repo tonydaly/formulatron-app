@@ -1,6 +1,5 @@
 class Submission
   include Mongoid::Document
-  # field :values, type: Hash
   belongs_to :form
   embeds_many :values
   # TODO validation

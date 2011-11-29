@@ -1,0 +1,19 @@
+%h2=element.label
+
+%table
+  %thead
+    %tr
+      %th Choices
+      %th Percentage
+      %th Count
+
+  %tbody
+    - element.options.each do |option|
+      %tr
+        %td=option
+        %td=percentage(@submissions.count, element.option_counts[option.value])
+        %td
+          = element.option_counts[option.value]
+
+%h3
+  = total(@submissions.count, element)
