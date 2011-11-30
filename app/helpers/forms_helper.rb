@@ -1,5 +1,6 @@
 module FormsHelper
   def percentage(total, count)
+    return "0" if total.zero?
     "%.0f" % ((count.to_f / total.to_f) * 100)
   end
 
