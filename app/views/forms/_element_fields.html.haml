@@ -1,10 +1,10 @@
-- f.object.options.build
+- f.object.options.build unless f.object.options.any?
 
 .clearfix
   = f.input :label
   = f.input :element_type, collection: Element::TYPES.map {|t| [t[1], t[0]]}, label: "Type", include_blank: false
 
-  %fieldset.options.hide
+  %fieldset.options
     %legend Choices
     = f.simple_fields_for :options do |option_form|
       = render partial: 'option_fields', :locals => { :f => option_form }

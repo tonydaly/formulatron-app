@@ -41,7 +41,14 @@ class Element
     values = Hash.new(0)
     submissions.each do |submission|
       submission.quantitative_values.each do |value|
+        
+        # Radio buttons only have one choice
+        if value.value.is_a?(String)
+          values[value.value] += 1
+          next
+        end
 
+        # Checkboxes can have multiple choices
         value.value.each do |choice|
           values[choice] += 1
         end
