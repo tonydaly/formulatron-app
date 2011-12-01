@@ -1,7 +1,7 @@
 class Value
   include Mongoid::Document
   field :name
-  field :value # Could be a string (text) or an array (checkboxes)
+  field :content # Could be a string (text) or an array (checkboxes)
   field :element_type
   embedded_in :submission
 
@@ -11,10 +11,10 @@ class Value
   end
 
   def to_s
-    value
+    content
   end
   
-  def value=(attribute)
+  def content=(attribute)
     if attribute.is_a?(Array)
       # Remove any blank attributes sent via the form
       super(attribute.reject(&:blank?))

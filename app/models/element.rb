@@ -43,13 +43,13 @@ class Element
       submission.quantitative_values.each do |value|
         
         # Radio buttons only have one choice
-        if value.value.is_a?(String)
-          values[value.value] += 1
+        if value.content.is_a?(String)
+          values[value.content] += 1
           next
         end
 
         # Checkboxes can have multiple choices
-        value.value.each do |choice|
+        value.content.each do |choice|
           values[choice] += 1
         end
       end

@@ -5,7 +5,7 @@
   - @form.elements.each_with_index do |element, index|
 
     = f.simple_fields_for :values, f.object.values.build do |value_form|
-      = value_form.input :value, 
+      = value_form.input :content, 
         as: element.element_type.to_sym,
         collection: element.options.collect(&:value),
         label: element.label, 
