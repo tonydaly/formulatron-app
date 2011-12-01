@@ -1,5 +1,6 @@
 class Submission
   include Mongoid::Document
+  include Mongoid::Timestamps
   belongs_to :form
   embeds_many :values
   # TODO validation
