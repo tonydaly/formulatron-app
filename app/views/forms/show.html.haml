@@ -1,21 +1,7 @@
 %h2 Responses
 
-%table
-  %thead
-    %tr
-      %th #
-      - @qualitative_elements.collect(&:label).each do |element_label|
-        %th
-          = element_label
-      %th Date
-  %tbody
-    - @submissions.each_with_index do |submission, index|
-      %tr
-        %td=index+1
-        - @qualitative_elements.collect(&:name).each do |name|
-          %td
-            = submission.values.where(name: name).first
-        %td=submission.created_at.to_s(:long_ordinal)
+- if @qualitative_elements.any?
+  = render partial: 'qualitative_elements'
 
 = render partial: 'quantitative_element', collection: @quantitative_elements, :as => :element
 
