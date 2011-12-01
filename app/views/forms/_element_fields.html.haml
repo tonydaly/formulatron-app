@@ -1,10 +1,12 @@
+- f.object.options.build
+
 .clearfix
   = f.input :label
   = f.input :element_type, collection: Element::TYPES.map {|t| [t[1], t[0]]}, label: "Type", include_blank: false
 
   %fieldset.options.hide
     %legend Choices
-    = f.simple_fields_for :options, f.object.options.build do |option_form|
+    = f.simple_fields_for :options do |option_form|
       = render partial: 'option_fields', :locals => { :f => option_form }
     %p= link_to_add_fields "Add Choice", f, :options
 
